@@ -44,7 +44,7 @@ public class PiggyBankTest {
     @Test
     public void testAddCoin() {
         System.out.println("addCoin");
-        Coin aCoin = new Coin(25, 2023);
+        Coin aCoin = new Coin(25);
         PiggyBank instance = new PiggyBank();
         boolean expResult = true;
         boolean result = instance.addCoin(aCoin);
@@ -58,9 +58,9 @@ public class PiggyBankTest {
     public void testRemoveCoin_0args() {
         System.out.println("removeCoin");
         PiggyBank instance = new PiggyBank();
-        instance.addCoin(new Coin(5, 2023));
-        instance.addCoin(new Coin(10, 2023));
-        Coin aCoin = new Coin(25, 2023);
+        instance.addCoin(new Coin(5));
+        instance.addCoin(new Coin(10));
+        Coin aCoin = new Coin(25);
         boolean result = instance.addCoin(aCoin);
         Coin removeResult = instance.removeCoin();
         System.out.println(aCoin + " " + removeResult);
@@ -75,11 +75,11 @@ public class PiggyBankTest {
         System.out.println("removeCoin");
         int amount = 10;
         PiggyBank instance = new PiggyBank();
-        instance.addCoin(new Coin(5, 2023));
-        instance.addCoin(new Coin(10, 2023));
-        instance.addCoin(new Coin(25, 2023));
-        int result = instance.removeCoin(amount).getValue();
-        assertEquals(amount, result);
+        instance.addCoin(new Coin(5));
+        instance.addCoin(new Coin(10));
+        instance.addCoin(new Coin(25));
+        boolean result = instance.removeCoin(amount);
+        assertEquals(true, result);
 
     }
 
@@ -91,9 +91,9 @@ public class PiggyBankTest {
         System.out.println("getBalance");
         PiggyBank instance = new PiggyBank();
         double expResult = 0.40;
-                instance.addCoin(new Coin(5, 2023));
-        instance.addCoin(new Coin(10, 2023));
-        instance.addCoin(new Coin(25, 2023));
+                instance.addCoin(new Coin(5));
+        instance.addCoin(new Coin(10));
+        instance.addCoin(new Coin(25));
         double result = instance.getBalance();
         assertEquals(expResult, result, 0);
 
@@ -108,7 +108,7 @@ public class PiggyBankTest {
         PiggyBank instance = new PiggyBank();
         boolean expResult = true;
         boolean result1 = instance.isEmpty();
-        Coin aCoin = new Coin(25, 2023);
+        Coin aCoin = new Coin(25);
         instance.addCoin(aCoin);
         boolean result2 = instance.isEmpty();
         boolean result = (result1 && !result2);
